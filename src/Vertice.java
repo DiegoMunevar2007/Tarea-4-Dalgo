@@ -4,9 +4,9 @@ import java.util.List;
 public class Vertice {
 
     List<Arista> adyacentes;
-    String nombre;
+    int nombre;
 
-    public Vertice(String nombre){
+    public Vertice(int nombre){
         this.nombre = nombre;
         adyacentes = new ArrayList<>();
     }
@@ -16,11 +16,16 @@ public class Vertice {
     public List<Arista> getAdyacentes() {
         return adyacentes;
     }
-    public String getNombre() {
+    public int getNombre() {
         return nombre;
     }
-    public void setNombre(String nombre) {
+    public void setNombre(int nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString(){
+        return Integer.toString(nombre);
     }
 
 }
