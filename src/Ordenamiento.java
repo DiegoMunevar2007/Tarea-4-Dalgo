@@ -36,30 +36,31 @@ public class Ordenamiento {
     public static List<Vertice> ordenTopologico(Grafo grafo) throws Exception{
         List<Vertice> ordenTopologico = new ArrayList<>();
         List<Vertice> verticesVistos = new ArrayList<>();
+        //Detectar los ciclos del grafo.
         if (detectarCiclos(grafo.getVerticesLista().get(0),new ArrayList<>(),new ArrayList<>())) {
             throw new Exception("El grafo tiene ciclos");
         }
 
         for (Vertice vertice : grafo.getVerticesLista()) { //Se itera por todos los vertices del grafo
             if (!verticesVistos.contains(vertice)) { // Si todavia no se ha visto se hace DFS sobre el
-                dfs(vertice, verticesVistos, ordenTopologico);
+                dfo(vertice, verticesVistos, ordenTopologico);
             }
         }
         return ordenTopologico;
     }
 
     /**
-     * Metodo que implementa DFS para obtener el orden topologico del grafo
+     * Metodo que implementa DFO para obtener el orden topologico del grafo
      * @param vertice
      * @param verticesVistos
      * @param ordenTopologico
      */
-    public static void dfs(Vertice vertice, List<Vertice> verticesVistos, List<Vertice> ordenTopologico) {
-        verticesVistos.add(vertice); // Ya que sabemos que
+    public static void dfo(Vertice vertice, List<Vertice> verticesVistos, List<Vertice> ordenTopologico) {
+        verticesVistos.add(vertice);
         for (Arista arista : vertice.getAdyacentes()) {
             Vertice verticeDestino = arista.getDestino();
             if (!verticesVistos.contains(verticeDestino)) {
-                dfs(verticeDestino, verticesVistos, ordenTopologico);
+                dfo(verticeDestino, verticesVistos, ordenTopologico);
             }
         }
         // Agregar el vertice al inicio de la lista cuando ya no tenga mas adyacentes (Una pila casera)
