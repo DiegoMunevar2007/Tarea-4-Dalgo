@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class CentroGrafo {
 
@@ -74,30 +73,9 @@ public class CentroGrafo {
         return dp;
     }
 
-    public static Grafo lector(){
-        Scanner sc = new Scanner(System.in);
-        Grafo grafo = new Grafo(true);
-        int numeroVertices = sc.nextInt();
-        int numeroAristas = sc.nextInt();
-        for (int i=0; i<numeroAristas;i++){
-            int verticeOrigenNombre = sc.nextInt();
-            Vertice verticeOrigen = grafo.getVertice(verticeOrigenNombre);
-            if (verticeOrigen==null){
-                verticeOrigen=grafo.addVertice(verticeOrigenNombre);
-            }
-            int verticeDestinoNombre = sc.nextInt();
-            Vertice verticeDestino = grafo.getVertice(verticeDestinoNombre);
-            if (verticeDestino==null){
-                verticeDestino=grafo.addVertice(verticeDestinoNombre);
-            }
-            int peso = sc.nextInt();
-            grafo.addArista(verticeOrigen.getNombre(),verticeDestino.getNombre(),peso);
-        }
-        return grafo;
-    }
 
     public static void main(String[] args) {
-        Grafo grafo = lector();
+        Grafo grafo = Lector.lectorConPesos(true);
         List<Vertice> centro = centroGrafo(grafo);
         for (Vertice vertice:centro){
             System.out.println(vertice);
