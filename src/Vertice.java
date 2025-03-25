@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Vertice {
 
-    List<Arista> adyacentes;
-    int nombre;
+    private List<Arista> adyacentes;
+    private int nombre;
 
     public Vertice(int nombre){
         this.nombre = nombre;

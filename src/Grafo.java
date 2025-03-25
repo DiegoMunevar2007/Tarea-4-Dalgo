@@ -3,8 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Grafo {
-    HashMap<Integer,Vertice> vertices;
-    boolean dirigido;
+    private HashMap<Integer,Vertice> vertices;
+    private boolean dirigido;
 
     public Grafo(boolean dirigido){
         vertices = new HashMap<>();

@@ -55,17 +55,17 @@ public class Ordenamiento {
      * @param verticesVistos
      * @param ordenTopologico
      */
-    public static void dfo(Vertice vertice, List<Vertice> verticesVistos, List<Vertice> ordenTopologico) {
-        verticesVistos.add(vertice);
-        for (Arista arista : vertice.getAdyacentes()) {
-            Vertice verticeDestino = arista.getDestino();
-            if (!verticesVistos.contains(verticeDestino)) {
-                dfo(verticeDestino, verticesVistos, ordenTopologico);
+        public static void dfo(Vertice vertice, List<Vertice> verticesVistos, List<Vertice> ordenTopologico) {
+            verticesVistos.add(vertice);
+            for (Arista arista : vertice.getAdyacentes()) {
+                Vertice verticeDestino = arista.getDestino();
+                if (!verticesVistos.contains(verticeDestino)) {
+                    dfo(verticeDestino, verticesVistos, ordenTopologico);
+                }
             }
+            // Agregar el vertice al inicio de la lista cuando ya no tenga mas adyacentes (Una pila casera)
+            ordenTopologico.add(0, vertice);
         }
-        // Agregar el vertice al inicio de la lista cuando ya no tenga mas adyacentes (Una pila casera)
-        ordenTopologico.add(0, vertice);
-    }
 
     public static void main(String[] args) {
         Grafo grafo = Lector.lectorSinPesos(true);
