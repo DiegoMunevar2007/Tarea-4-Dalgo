@@ -1,9 +1,10 @@
-import java.util.ArrayList;
+package utils;
+
 import java.util.HashMap;
 import java.util.List;
 
 public class Grafo {
-    private HashMap<Integer,Vertice> vertices;
+    private HashMap<Integer, Vertice> vertices;
     private boolean dirigido;
 
     public Grafo(boolean dirigido){

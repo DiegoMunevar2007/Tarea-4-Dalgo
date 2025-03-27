@@ -1,3 +1,10 @@
+package soluciones;
+
+import utils.Arista;
+import utils.Grafo;
+import utils.Lector;
+import utils.Vertice;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
